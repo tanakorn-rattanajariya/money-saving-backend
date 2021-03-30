@@ -1,0 +1,18 @@
+# Spring Money Saving Backend
+
+##Initialize
+1. Run DB
+```
+docker run --name some-postgres -e -p 5432:5432 POSTGRES_PASSWORD=mysecretpassword -d postgres
+```
+2. Download PGAdmin v4.0 https://www.pgadmin.org/download/
+
+3. Open PGAdmin and then create a table name postgres
+
+```
+Username: postgres
+Password: secret
+```
+
+4. Update Maven and then click run on tomcat
+5. Open Swagger-ui from http://localhost:8300/api/saving/swagger-ui.html
