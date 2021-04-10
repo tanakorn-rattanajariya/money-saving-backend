@@ -1,14 +1,8 @@
 package com.example.smsdrw.service;
 
-import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.example.smsdrw.model.LogInfo;
-
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jwts;
 import lombok.extern.slf4j.Slf4j;
 
 @Service
@@ -17,5 +11,15 @@ public class service {
 	
 	@Autowired
 	public BankAccountService bank;
+	@Autowired
+	public AccountService account;
+	@Autowired
+	public CategoryService category;
+	@Autowired
+	public DepositService deposit;
+	@Autowired
+	public TransactionService transaction;
+	@Autowired
+	public WithdrawService withdraw;
 
 }

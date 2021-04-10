@@ -1,17 +1,22 @@
 package com.example.smsdrw.model;
 
-import java.util.Date;
-import java.util.UUID;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 
-import org.hibernate.annotations.GenericGenerator;
-
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+import com.fasterxml.jackson.annotation.JsonSetter;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -25,10 +30,19 @@ import lombok.ToString;
 public class BankAccount {
 
 	@Id
-	@GeneratedValue(generator = "uuid2")
-    @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
-    @Column(name = "id", columnDefinition = "VARCHAR(255)")
+	@GeneratedValue(strategy = GenerationType.TABLE)
 	@ApiModelProperty(required = false, hidden = true)
-	private UUID id;
+	private Long id;
+	
 	private String name;
+	
+	@ManyToOne
+	@JoinColumn(name = "account_id")
+	private Account account;
+	
+	@JsonIgnore
+	@Transient
+	private Long account_id;
+	
+	
 }

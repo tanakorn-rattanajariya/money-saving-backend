@@ -8,6 +8,6 @@ import com.example.smsdrw.model.BankAccount;
 import com.example.smsdrw.repository.BankAccountRepository;
 
 @Service
-public class BankAccountService extends BaseService<BankAccount,UUID,BankAccountRepository> {
+public class BankAccountService extends BaseService<BankAccount,Long,BankAccountRepository> {
 
 }

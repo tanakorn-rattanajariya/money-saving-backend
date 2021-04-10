@@ -1,8 +1,5 @@
 package com.example.smsdrw.model;
 
-import java.util.Date;
-
-import org.springframework.lang.Nullable;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

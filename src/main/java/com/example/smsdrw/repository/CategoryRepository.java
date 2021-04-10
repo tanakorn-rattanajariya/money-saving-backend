@@ -5,8 +5,9 @@ import java.util.UUID;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.example.smsdrw.model.BankAccount;
+import com.example.smsdrw.model.Category;
 
 @Repository
-public interface BankAccountRepository extends JpaRepository<BankAccount,Long> {
+public interface CategoryRepository extends JpaRepository<Category,Long>  {
+
 }

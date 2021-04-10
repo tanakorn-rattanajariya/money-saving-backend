@@ -9,46 +9,40 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.smsdrw.model.Account;
-import com.example.smsdrw.model.BankAccount;
 
 @RestController
-@RequestMapping("/bank")
-public class BankAccountController extends controller<BankAccount,Long> {
+@RequestMapping("/account")
+public class AccountController extends controller<Account,Long> {
 
 	@Override
 	public ResponseEntity<?> get(@RequestParam Long id) {
 		// TODO Auto-generated method stub
-		log.info(id.toString());
-		return ResponseEntity.ok(service.bank.get(id));
+		
+		return ResponseEntity.ok(service.account.get(id));
 	}
 
 	@Override
 	public ResponseEntity<?> list() {
 		// TODO Auto-generated method stub
-		return ResponseEntity.ok(service.bank.list(0));
+		return ResponseEntity.ok(service.account.list(0));
 	}
 
 	@Override
-	public ResponseEntity<?> post(BankAccount data) {
+	public ResponseEntity<?> post(@RequestBody Account data) {
 		// TODO Auto-generated method stub
-		data.setAccount(service.account.get(data.getAccount_id()).orElse(null));
-		return ResponseEntity.ok(service.bank.post(data));
+		return ResponseEntity.ok(service.account.post(data));
 	}
 
 	@Override
-	public ResponseEntity<?> put(@RequestBody BankAccount data,@RequestParam Long id) {
+	public ResponseEntity<?> put(@RequestBody Account data, Long id) {
 		// TODO Auto-generated method stub
-		return ResponseEntity.ok(service.bank.put(data,id));
+		return ResponseEntity.ok(service.account.put(data, id));
 	}
 
 	@Override
 	public ResponseEntity<?> delete(@RequestParam Long id) {
 		// TODO Auto-generated method stub
-		return ResponseEntity.ok(service.bank.delete(id));
+		return ResponseEntity.ok(service.account.delete(id));
 	}
-
-
-
-	
 
 }
